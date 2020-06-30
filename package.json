@@ -1,0 +1,37 @@
+{
+    "name": "cmu.js",
+    "description": "Create Machine Utils but for javascript",
+    "version": "0.0.1",
+    "keywords": [
+        "cmp",
+        "clicksminuteper",
+        "cmu",
+        "create machine utils",
+        "cmujs",
+        "create machine utils js",
+        "discord",
+        "discord.js"
+    ],
+    "maintainers": [
+        {
+            "name": "Nathan",
+            "email": "nathan@clicksminuteper.net",
+            "web": "https://clicksminuteper.net"
+        },
+        {
+            "name": "Samuel",
+            "email": "samuel@clicksminuteper.net",
+            "web": "https://clicksminuteper.net"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/ClicksMinutePer/cmu.js.git"
+        }
+    ],
+    "dependencies": {
+        "discord.js": "^12.2.0",
+        "opusscript": "0.0.7"
+    }
+}
