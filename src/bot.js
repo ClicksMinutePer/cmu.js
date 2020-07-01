@@ -1,4 +1,4 @@
-discord = require("discord")
+discord = require("discord.js")
 
 command = require("./command")
 errors = require("./handlingErrors/errors");
