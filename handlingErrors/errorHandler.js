@@ -1,3 +1,5 @@
+const CMUError = require('../error.js')
+
 handlers = require('./handles/main.js')
 
 class handleError {
@@ -6,11 +8,13 @@ class handleError {
         this.Handlers = []
         handlers.setup(this)
     }
-    handles(this, exception, ignoreNonExceptions=false) {
-        
-    }
 
-    async onCommandError(this,context,error) {
+    handles(func , ignoreNonExceptions=false) {
+        if(arguments instanceof Array || arguments.prototype instanceof Error || ignoreNonExceptions) {
+            
+        }
+    }
+    async onCommandError(context,error) {
         try {
             this.Handlers.forEach((handles, handler) => {
                 if((!error instanceof handles) || (typeof error === type ) || (typeof handles === 'function' && error === handles) || (typeof handles === object && error in handles)) {

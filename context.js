@@ -11,3 +11,5 @@ class Context {
         return await this.channel.send.apply(none, arguments);
     }
 }
+
+module.exports = Context;
