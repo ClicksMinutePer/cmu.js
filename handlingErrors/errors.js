@@ -37,7 +37,7 @@ class ContextError extends CMUError {
     }
 }
 
-class ExtentionErrors extends CMUError {
+class ExtentionError extends CMUError {
     constructor(message) {
         this.message = message
         this.name = "ExtensionError"
@@ -58,15 +58,32 @@ class CooldownError extends CMUError {
 */
 
 
+//Argument Parse Errors
 
-class TooManyArgumentsError extends ArgumentParseError {
+class TooManyArguments extends ArgumentParseError {
     constructor(message) {
         this.message = message;
-        this.name = "ArgumentParseError.TooManyArguments";
+        this.name = "TooManyArguments";
     }
 }
 
-class CommandDoesntExist extends Error {
+class BadArgument extends ArgumentParseError {
+    constructor(message) {
+        this.message = message
+        this.name = "BadArgument"
+    }
+}
+
+class BadlyQuotedArguments extends ArgumentParseError {
+    constructor(message) {
+        this.message = message
+        this.name = "BadlyQuotedArguments"
+    }
+}
+
+//Command Parse Errors
+
+class CommandDoesntExist extends CommandParseError {
     constructor(message, name) {
         this.command_name = name
         this.message = message;
@@ -74,10 +91,153 @@ class CommandDoesntExist extends Error {
     }
 }
 
-class CommandExistsError extends Error {
+class CommandExists extends CommandParseError {
     constructor(message) {
         this.message = message;
         this.name = "CommandExistsError";
+    }
+}
+
+
+//Permission Errors
+
+class NotOwner extends PermissionError {
+    constructor(message) {
+        this.message = message
+        this.name = "NotOwner"
+    }
+}
+
+class BotMissingPermissions extends PermissionError {
+    constructor(message) {
+        this.message = message
+        this.name = "BotMissingPermissions"
+    }
+}
+
+class BotMissingRole extends PermissionError {
+    constructor(message) {
+        this.message = message
+        this.name = "BotMissingRole"
+    }
+}
+
+class BotMissingAnyRole extends PermissionError {
+    constructor(message) {
+        this.message = message
+        this.name = "BotMissingAnyRole"
+    }
+}
+
+class MissingPermissions extends PermissionError {
+    constructor(message) {
+        this.message = message
+        this.name = "MissingPermissions"
+    }
+}
+
+class MissingRole extends PermissionError {
+    constructor(message) {
+        this.message = message
+        this.name = "MissingRole"
+    }
+}
+
+class MissingAnyRole extends PermissionError {
+    constructor(message) {
+        this.message = message
+        this.name = "MissingAnyRole"
+    }
+}
+
+class HttpException extends PermissionError {
+    constructor(message) {
+        this.message = message
+        this.name = "httpException"
+    }
+}
+
+class FailingChecks extends PermissionError {
+    constructor(message) {
+        this.message = message
+        this.name = "FailingChecks"
+    }
+}
+
+
+class DisabledCommand extends PermissionError {
+    constructor(message){
+        this.message = message
+        this.name = "DisabledCommand"
+    }
+}
+
+//Context Errors
+
+class PrivateMessageOnly extends ContextError {
+    constructor(message) {
+        this.message = message
+        this.name = "PrivateMessageOnly"
+    }
+}
+
+class NoPrivateMessage extends ContextError {
+    constructor(message) {
+        this.message = message
+        this.name = "NoPrivateMessage"
+    }
+}
+
+class NsfwChannelRequired extends ContextError {
+    constructor(message) {
+        this.message = message
+        this.name = "NsfwChannelRequired"
+    }
+}
+
+//Extension Errors
+
+class ExtensionAlreadyLoaded extends ExtentionError {
+    constructor(message) {
+        this.message = message
+        this.name = "ExtensionAlreadyLoaded"
+    }
+}
+
+class ExtensionNotLoaded extends ExtentionError {
+    constructor(message) {
+        this.message = message;
+        this.name = "ExtensionNotLoaded"
+    }
+}
+
+class ExtensionNotFound extends ExtentionError {
+    constructor(message) {
+        this.message = message;
+        this.name = "ExtensionNotFound"
+    }
+}
+
+class FailedEntryPoint extends ExtentionError {
+    constructor(message) {
+        this.message = message
+        this.name = "FailedEntryPoint"
+    }
+}
+
+//Cooldown Errors
+
+class CommandOnCooldown extends CooldownError {
+    constructor(message) {
+        this.message = message
+        this.name = "CommandOnCooldown"
+    }
+}
+
+class MaxConcurrencyReached extends CooldownError {
+    constructor(message) {
+        this.message = message
+        this.name = "MaxConcurrencyReached"
     }
 }
 
@@ -95,4 +255,10 @@ class InvalidPrefix extends Error {
         this.message = message;
         this.name = "CommandDoesntExist";
     }
+}
+
+
+
+module.exports = {
+    
 }
