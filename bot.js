@@ -6,8 +6,12 @@ class Bot extends discord.Client {
         super.apply(this, arguments);
         this.on("message", this.callCommands);
         this.on("error", this.handlerError);
-        this.prefix = command_prefix;
+        this.prefix = typeof command_prefix === String ? [command_prefix] : command_prefix;
         this.commands = {}; // {commandName: {description: null, invoke: null}}
+    }
+
+    async run() {
+        return await this.login.apply(null, arguments)
     }
 
     command(func, name) {
@@ -21,7 +25,7 @@ class Bot extends discord.Client {
     }
 
     parseName(ctx, name) {
-        for (prefix in typeof prefix == Array ? this.prefix : this.prefix(ctx)) {
+        for (prefix in typeof prefix === Array ? this.prefix : this.prefix(ctx)) {
             if (name.startsWith(prefix)) {
                 return name.replace(prefix, "");
             }
