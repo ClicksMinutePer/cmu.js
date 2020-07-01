@@ -13,7 +13,7 @@ class handleError {
     async onCommandError(this,context,error) {
         try {
             this.Handlers.forEach((handles, handler) => {
-                if((!error instanceof handles) || (typeof error === type ) || (typeof handles === function && error === handles) || (typeof handles === object && error in handles)) {
+                if((!error instanceof handles) || (typeof error === type ) || (typeof handles === 'function' && error === handles) || (typeof handles === object && error in handles)) {
                     console.log(handles + error);
                 }
             });
@@ -23,7 +23,7 @@ class handleError {
                 
             }
         } catch {
-            throw console.error(`Got an error in the error handler: ${error}`)
+            
         }
     }
 }
