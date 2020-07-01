@@ -1,37 +1,32 @@
 {
-    "name": "cmu.js",
-    "description": "Create Machine Utils but for javascript",
-    "version": "0.0.1",
-    "keywords": [
-        "cmp",
-        "clicksminuteper",
-        "cmu",
-        "create machine utils",
-        "cmujs",
-        "create machine utils js",
-        "discord",
-        "discord.js"
-    ],
-    "maintainers": [
-        {
-            "name": "Nathan",
-            "email": "nathan@clicksminuteper.net",
-            "web": "https://clicksminuteper.net"
-        },
-        {
-            "name": "Samuel",
-            "email": "samuel@clicksminuteper.net",
-            "web": "https://clicksminuteper.net"
-        }
-    ],
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/ClicksMinutePer/cmu.js.git"
-        }
-    ],
-    "dependencies": {
-        "discord.js": "^12.2.0",
-        "opusscript": "0.0.7"
-    }
+  "name": "createmachineutils",
+  "version": "0.0.1",
+  "description": "Utilities used for CMP and our bots",
+  "main": "main.js",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "opusscript": "^0.0.7"
+  },
+  "scripts": {
+    "test": "node example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClicksMinutePer/cmu.js.git"
+  },
+  "keywords": [
+    "CMP",
+    "CMU",
+    "createmachineutils",
+    "discord",
+    "discord.js",
+    "cmu-discord",
+    "cmp-discord"
+  ],
+  "author": "Samuel Shuert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClicksMinutePer/cmu.js/issues"
+  },
+  "homepage": "https://github.com/ClicksMinutePer/cmu.js#readme"
 }
