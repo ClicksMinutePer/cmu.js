@@ -1,6 +1,7 @@
-discord = require('discord.js');
+const Jshaku = require('./jshaku');
+const Discord = require('discord.js');
 
-class Paginator {
+class Paginator extends Jshaku {
     constructor(prefix="```js\n", suffix="```") {
         this.pages = []
         this.autoPage = {
@@ -14,9 +15,10 @@ class Paginator {
         }
         this.prefix = prefix
         this.suffix = suffix
-        return (this, {
-            
-        })
+        return function(page) {
+                let Page = this.autoPage(page);
+                return this.sendPage(Page);
+        }
     }
 
     addPage(index,page) {
@@ -24,7 +26,7 @@ class Paginator {
     }
 
     autoPage(message) {
-        
+        return message
     }
 
     sendPage(page) {
