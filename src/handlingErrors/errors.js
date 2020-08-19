@@ -98,6 +98,12 @@ class CommandExists extends CommandParseError {
     }
 }
 
+class AliasExists extends CommandParseError {
+    constructor(message) {
+        this.message = message;
+        this.name = "AliasExistsError";
+    }
+}
 
 //Permission Errors
 

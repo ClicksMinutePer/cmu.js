@@ -10,15 +10,27 @@ class Bot extends discord.Client {
         this.on("error", this.handlerError);
         this.prefix = typeof command_prefix === String ? [command_prefix] : command_prefix;
         this.commands = {}; // {commandName: {description: null, invoke: null}}
+        this.alias = {};
+        this.defaultCommands = {
+            ping: {description:"Checks the bots ping", function() {
+                var ping = Date.now() - message.createdTimestamp + " ms";
+
+            }}
+        }
     }
 
-    async run(...args) {
-        return await this.login(...args)
+    async run(token) {
+        return await this.login(token)
     }
 
-    command(func, name, ...args) {
-        if (name in this.commands) throw new errors.CommandExistsError("This command already exists!");
-        this.commands[name] = new command(func, ...args);
+    command(func, name, {...args}) {
+        if (name in this.commands) throw new errors.CommandExists("This command already exists!");
+        if (name in this.alias) throw new errors.CommandExists("This command is used as an alias!");
+        if (args.alias in this.alias) throw new errors.AliasExists("This alias already exists!");
+        if (args.alias in this.commands) throw new errors.AliasExists("This alias is used as the name for a command!");
+        if (!args.args) args.args = [];
+        if (!Array.isArray(args.args)) throw new errors.CommandParseError("Make sure your arguments ar an array");
+        this.commands[name] = new command(func, args.args);
         return func;
     }
 
@@ -56,6 +68,11 @@ class Bot extends discord.Client {
             handleError(errors.CommandInvokeError(error));
         }
     }
+
+    async send({...args}) {
+        await this.getContext()
+    }
+
 }
 
 module.exports = Bot;

@@ -1,26 +1,25 @@
 {
-  "name": "createmachineutils",
-  "version": "0.0.1",
-  "description": "Utilities used for CMP and our bots",
+  "name": "cmujs",
+  "version": "0.0.2",
+  "description": "JavaScript utilities for creating discord bots",
   "main": "main.js",
-  "dependencies": {
-    "discord.js": "^12.2.0",
-    "opusscript": "^0.0.7"
-  },
   "scripts": {
-    "test": "node example.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ClicksMinutePer/cmu.js.git"
   },
   "keywords": [
-    "CMP",
-    "CMU",
+    "cmu",
+    "cmujs",
+    "cmu.js",
     "createmachineutils",
+    "cmp",
+    "clicksminuteper",
+    "cmu-discord",
     "discord",
     "discord.js",
-    "cmu-discord",
     "cmp-discord"
   ],
   "author": "Samuel Shuert",
@@ -28,5 +27,10 @@
   "bugs": {
     "url": "https://github.com/ClicksMinutePer/cmu.js/issues"
   },
-  "homepage": "https://github.com/ClicksMinutePer/cmu.js#readme"
+  "homepage": "https://github.com/ClicksMinutePer/cmu.js#readme",
+  "dependencies": {
+    "@types/node": "^14.0.27",
+    "discord.js": "^12.3.1",
+    "typings": "^2.1.1"
+  }
 }
