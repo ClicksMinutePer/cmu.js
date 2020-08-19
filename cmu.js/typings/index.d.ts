@@ -34,7 +34,7 @@ declare module 'cmu.js' {
     export class CMUClient extends discord.Client {
         public constructor(options?:CMUClientOpts)
         public commandPrefix: string;
-		public options: CMUClientOpts;
+        public options: CMUClientOpts;
         public readonly owners: discord.User[];
         public readonly team: discord.Team | discord.TeamMember[]
 
@@ -44,7 +44,8 @@ declare module 'cmu.js' {
 
     }
 
-    export { CMUClient as Client}
+    export { CMUClient as Client,
+             CMUClient as Bot    }
     
 
     export interface CommandOpts {
